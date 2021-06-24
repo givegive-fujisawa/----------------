@@ -1,0 +1,106 @@
+{
+    "sourceFile": "tab_switch.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 22,
+            "patches": [
+                {
+                    "date": 1624520599691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1624520609554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,1 @@\n-//タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n-  console.log(\"test\");\r\n-});\r\n+console.log(\"start\");\r\n"
+                },
+                {
+                    "date": 1624520644096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,10 @@\n console.log(\"start\");\r\n+\r\n+//タブ切り替えボタンをクリックした場合の処理\r\n+$(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n+  console.log(\"test\");\r\n+});\r\n+\r\n+$(\"p\").on(\"click\", function () {\r\n+  hogehoge;\r\n+});\r\n"
+                },
+                {
+                    "date": 1624520649670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n console.log(\"start\");\r\n \r\n //タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n+$(\".tab_switch\").on(\"click\", \"\", function () {\r\n   console.log(\"test\");\r\n });\r\n \r\n-$(\"p\").on(\"click\", function () {\r\n+$(\".tab_btn\").on(\"click\", function () {\r\n   hogehoge;\r\n });\r\n"
+                },
+                {
+                    "date": 1624520659377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,6 @@\n+console.log(\"start\");\r\n+\r\n+//タブ切り替えボタンをクリックした場合の処理\r\n+$(\".tab_btn\").on(\"click\", function () {\r\n+  console.log(\"click\");\r\n+});\r\n"
+                },
+                {
+                    "date": 1624520701727,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,6 @@\n console.log(\"start\");\r\n \r\n //タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_btn\").on(\"click\", function () {\r\n-  console.log(\"click\");\r\n-});\r\n-console.log(\"start\");\r\n-\r\n-//タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \"\", function () {\r\n+$(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n   console.log(\"test\");\r\n });\r\n-\r\n-$(\".tab_btn\").on(\"click\", function () {\r\n-  hogehoge;\r\n-});\r\n"
+                },
+                {
+                    "date": 1624520760472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,5 +2,6 @@\n \r\n //タブ切り替えボタンをクリックした場合の処理\r\n $(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n   console.log(\"test\");\r\n+  $(\"tab_content\").removeClass(\"active\");\r\n });\r\n"
+                },
+                {
+                    "date": 1624520773301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,7 @@\n \r\n //タブ切り替えボタンをクリックした場合の処理\r\n $(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n   console.log(\"test\");\r\n-  $(\"tab_content\").removeClass(\"active\");\r\n+  $(\".tab_content\").removeClass(\"active\");\r\n+  $();\r\n });\r\n"
+                },
+                {
+                    "date": 1624520786891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,6 +3,6 @@\n //タブ切り替えボタンをクリックした場合の処理\r\n $(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n   console.log(\"test\");\r\n   $(\".tab_content\").removeClass(\"active\");\r\n-  $();\r\n+  $(\".tab_content\");\r\n });\r\n"
+                },
+                {
+                    "date": 1624520826151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n console.log(\"start\");\r\n \r\n //タブ切り替えボタンをクリックした場合の処理\r\n $(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n+  $(this).data(\"tabname\");\r\n   console.log(\"test\");\r\n   $(\".tab_content\").removeClass(\"active\");\r\n   $(\".tab_content\");\r\n });\r\n"
+                },
+                {
+                    "date": 1624520846564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n console.log(\"start\");\r\n \r\n //タブ切り替えボタンをクリックした場合の処理\r\n $(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n-  $(this).data(\"tabname\");\r\n-  console.log(\"test\");\r\n+  var selection = $(this).data(\"tabname\");\r\n+  console.log(selection);\r\n   $(\".tab_content\").removeClass(\"active\");\r\n   $(\".tab_content\");\r\n });\r\n"
+                },
+                {
+                    "date": 1624520925635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n console.log(\"start\");\r\n \r\n //タブ切り替えボタンをクリックした場合の処理\r\n $(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n-  var selection = $(this).data(\"tabname\");\r\n+  var selection = $(this).data();\r\n   console.log(selection);\r\n   $(\".tab_content\").removeClass(\"active\");\r\n   $(\".tab_content\");\r\n });\r\n"
+                },
+                {
+                    "date": 1624521017010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n console.log(\"start\");\r\n \r\n //タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n+$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n   var selection = $(this).data();\r\n   console.log(selection);\r\n   $(\".tab_content\").removeClass(\"active\");\r\n   $(\".tab_content\");\r\n"
+                },
+                {
+                    "date": 1624521036237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n console.log(\"start\");\r\n \r\n //タブ切り替えボタンをクリックした場合の処理\r\n $(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n-  var selection = $(this).data();\r\n+  var selection = $(this).data(\"tabname\");\r\n   console.log(selection);\r\n   $(\".tab_content\").removeClass(\"active\");\r\n   $(\".tab_content\");\r\n });\r\n"
+                },
+                {
+                    "date": 1624521052294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n console.log(\"start\");\r\n \r\n //タブ切り替えボタンをクリックした場合の処理\r\n $(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n+  選んだタブを取得;\r\n   var selection = $(this).data(\"tabname\");\r\n   console.log(selection);\r\n   $(\".tab_content\").removeClass(\"active\");\r\n   $(\".tab_content\");\r\n"
+                },
+                {
+                    "date": 1624521091919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+console.log(\"start\");\r\n+\r\n+//タブ切り替えボタンをクリックした場合の処理\r\n+$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n+  // 選んだタブ名を取得\r\n+  var selection = $(this).data(\"tabname\");\r\n+  console.log(selection);\r\n+  $(\".tab_content div\").removeClass(\"active\");\r\n+  $(\".tab_content\");\r\n+});\r\n"
+                },
+                {
+                    "date": 1624521104262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+console.log(\"start\");\r\n+\r\n+//タブ切り替えボタンをクリックした場合の処理\r\n+$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n+  // 選んだタブ名を取得\r\n+  var selection = $(this).data(\"tabname\");\r\n+  console.log(selection);\r\n+  //activeクラスを解除\r\n+  $(\".tab_content div\").removeClass(\"active\");\r\n+  $(\".tab_content\");\r\n+});\r\n"
+                },
+                {
+                    "date": 1624521118971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+console.log(\"start\");\r\n+\r\n+//タブ切り替えボタンをクリックした場合の処理\r\n+$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n+  // 選んだタブ名を取得\r\n+  var selection = $(this).data(\"tabname\");\r\n+  console.log(selection);\r\n+  //activeクラスを解除\r\n+  $(\".tab_content div\").removeClass(\"active\");\r\n+  //選んだタブをactiveに\r\n+  $(\".tab_content\");\r\n+});\r\n"
+                },
+                {
+                    "date": 1624521159572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+console.log(\"start\");\r\n+\r\n+//タブ切り替えボタンをクリックした場合の処理\r\n+$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n+  // 選んだタブ名を取得\r\n+  var selection = $(this).data(\"tabname\");\r\n+  console.log(selection);\r\n+  //activeクラスを解除\r\n+  $(\".tab_content div\").removeClass(\"active\");\r\n+  //選んだタブをactiveに\r\n+  $(\".tab_content\").\r\n+});\r\n"
+                },
+                {
+                    "date": 1624521167781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+console.log(\"start\");\r\n+\r\n+//タブ切り替えボタンをクリックした場合の処理\r\n+$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n+  // 選んだタブ名を取得\r\n+  var selection = $(this).data(\"tabname\");\r\n+  console.log(selection);\r\n+  //activeクラスを解除\r\n+  $(\".tab_content div\").removeClass(\"active\");\r\n+  //選んだタブをactiveに\r\n+  $(\".tab_content\").find();\r\n+});\r\n"
+                },
+                {
+                    "date": 1624521176473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,12 @@\n+console.log(\"start\");\r\n+\r\n+//タブ切り替えボタンをクリックした場合の処理\r\n+$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n+  // 選んだタブ名を取得\r\n+  var selection = $(this).data(\"tabname\");\r\n+  console.log(selection);\r\n+  //activeクラスを解除\r\n+  $(\".tab_content div\").removeClass(\"active\");\r\n+  //選んだタブをactiveに\r\n+  $(\".tab_content\").find().addClass(active);\r\n+});\r\n"
+                },
+                {
+                    "date": 1624521241074,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,73 +7,8 @@\n   console.log(selection);\r\n   //activeクラスを解除\r\n   $(\".tab_content div\").removeClass(\"active\");\r\n   //選んだタブをactiveに\r\n-  $(\".tab_content\").find().addClass(active);\r\n+  $(\".tab_content\")\r\n+    .find(\"*[data-tabname=\" + selection + \"]\")\r\n+    .addClass(\"active\");\r\n });\r\n-console.log(\"start\");\r\n-\r\n-//タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n-  // 選んだタブ名を取得\r\n-  var selection = $(this).data(\"tabname\");\r\n-  console.log(selection);\r\n-  //activeクラスを解除\r\n-  $(\".tab_content div\").removeClass(\"active\");\r\n-  //選んだタブをactiveに\r\n-  $(\".tab_content\").find();\r\n-});\r\n-console.log(\"start\");\r\n-\r\n-//タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n-  // 選んだタブ名を取得\r\n-  var selection = $(this).data(\"tabname\");\r\n-  console.log(selection);\r\n-  //activeクラスを解除\r\n-  $(\".tab_content div\").removeClass(\"active\");\r\n-  //選んだタブをactiveに\r\n-  $(\".tab_content\").\r\n-});\r\n-console.log(\"start\");\r\n-\r\n-//タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n-  // 選んだタブ名を取得\r\n-  var selection = $(this).data(\"tabname\");\r\n-  console.log(selection);\r\n-  //activeクラスを解除\r\n-  $(\".tab_content div\").removeClass(\"active\");\r\n-  //選んだタブをactiveに\r\n-  $(\".tab_content\");\r\n-});\r\n-console.log(\"start\");\r\n-\r\n-//タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n-  // 選んだタブ名を取得\r\n-  var selection = $(this).data(\"tabname\");\r\n-  console.log(selection);\r\n-  //activeクラスを解除\r\n-  $(\".tab_content div\").removeClass(\"active\");\r\n-  $(\".tab_content\");\r\n-});\r\n-console.log(\"start\");\r\n-\r\n-//タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n-  // 選んだタブ名を取得\r\n-  var selection = $(this).data(\"tabname\");\r\n-  console.log(selection);\r\n-  $(\".tab_content div\").removeClass(\"active\");\r\n-  $(\".tab_content\");\r\n-});\r\n-console.log(\"start\");\r\n-\r\n-//タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n-  選んだタブを取得;\r\n-  var selection = $(this).data(\"tabname\");\r\n-  console.log(selection);\r\n-  $(\".tab_content\").removeClass(\"active\");\r\n-  $(\".tab_content\");\r\n-});\r\n"
+                },
+                {
+                    "date": 1624521264851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,4 @@\n-console.log(\"start\");\r\n-\r\n //タブ切り替えボタンをクリックした場合の処理\r\n $(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n   // 選んだタブ名を取得\r\n   var selection = $(this).data(\"tabname\");\r\n"
+                }
+            ],
+            "date": 1624520599691,
+            "name": "Commit-0",
+            "content": "//タブ切り替えボタンをクリックした場合の処理\r\n$(\".tab_switch\").on(\"click\", \".tab_btn\", function () {\r\n  console.log(\"test\");\r\n});\r\n"
+        }
+    ]
+}

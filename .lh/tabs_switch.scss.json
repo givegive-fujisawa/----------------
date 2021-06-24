@@ -1,0 +1,46 @@
+{
+    "sourceFile": "tabs_switch.scss",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1624520108095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1624520145772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,10 @@\n-tabs_switch\n\\ No newline at end of file\n+.tabs_switch {\r\n+  .tab_content {\r\n+    div {\r\n+      display: none;\r\n+      &.active {\r\n+        display: block;\r\n+      }\r\n+    }\r\n+  }\r\n+}\r\n"
+                },
+                {
+                    "date": 1624520165380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,8 @@\n .tabs_switch {\r\n+  .tab_btn {\r\n+    display: flex;\r\n+  }\r\n   .tab_content {\r\n     div {\r\n       display: none;\r\n       &.active {\r\n"
+                },
+                {
+                    "date": 1624520189874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,10 @@\n .tabs_switch {\r\n   .tab_btn {\r\n     display: flex;\r\n+    div {\r\n+      pointer-events: painted;\r\n+    }\r\n   }\r\n   .tab_content {\r\n     div {\r\n       display: none;\r\n"
+                },
+                {
+                    "date": 1624520201114,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n .tabs_switch {\r\n   .tab_btn {\r\n     display: flex;\r\n     div {\r\n-      pointer-events: painted;\r\n+      cursor: pointer;\r\n     }\r\n   }\r\n   .tab_content {\r\n     div {\r\n"
+                },
+                {
+                    "date": 1624520263507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n .tabs_switch {\r\n+  // 切り替えボタン設定\r\n   .tab_btn {\r\n     display: flex;\r\n     div {\r\n       cursor: pointer;\r\n"
+                },
+                {
+                    "date": 1624520271870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n     div {\r\n       cursor: pointer;\r\n     }\r\n   }\r\n+  //   タブ内容設定\r\n   .tab_content {\r\n     div {\r\n       display: none;\r\n       &.active {\r\n"
+                },
+                {
+                    "date": 1624520370609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-.tabs_switch {\r\n+.tab_switch {\r\n   // 切り替えボタン設定\r\n   .tab_btn {\r\n     display: flex;\r\n     div {\r\n"
+                }
+            ],
+            "date": 1624520108095,
+            "name": "Commit-0",
+            "content": "tabs_switch"
+        }
+    ]
+}

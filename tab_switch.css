@@ -1,0 +1,15 @@
+.tab_switch .tab_btn {
+  display: flex;
+}
+
+.tab_switch .tab_btn div {
+  cursor: pointer;
+}
+
+.tab_switch .tab_content div {
+  display: none;
+}
+
+.tab_switch .tab_content div.active {
+  display: block;
+}

@@ -1,0 +1,18 @@
+.tab_switch {
+  // 切り替えボタン設定
+  .tab_btn {
+    display: flex;
+    div {
+      cursor: pointer;
+    }
+  }
+  //   タブ内容設定
+  .tab_content {
+    div {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
