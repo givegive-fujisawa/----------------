@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 22,
+            "activePatchIndex": 34,
             "patches": [
                 {
                     "date": 1624520599691,
@@ -96,6 +96,54 @@
                 {
                     "date": 1624521264851,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,4 @@\n-console.log(\"start\");\r\n-\r\n //タブ切り替えボタンをクリックした場合の処理\r\n $(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n   // 選んだタブ名を取得\r\n   var selection = $(this).data(\"tabname\");\r\n"
+                },
+                {
+                    "date": 1624534828007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,5 +8,6 @@\n   //選んだタブをactiveに\r\n   $(\".tab_content\")\r\n     .find(\"*[data-tabname=\" + selection + \"]\")\r\n     .addClass(\"active\");\r\n+  $(\"#demo\").load(location.href + \" #demo\");\r\n });\r\n"
+                },
+                {
+                    "date": 1624534843439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,5 @@\n   //選んだタブをactiveに\r\n   $(\".tab_content\")\r\n     .find(\"*[data-tabname=\" + selection + \"]\")\r\n     .addClass(\"active\");\r\n-  $(\"#demo\").load(location.href + \" #demo\");\r\n });\r\n"
+                },
+                {
+                    "date": 1624535318502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,5 +8,9 @@\n   //選んだタブをactiveに\r\n   $(\".tab_content\")\r\n     .find(\"*[data-tabname=\" + selection + \"]\")\r\n     .addClass(\"active\");\r\n+  $.get(document.URL).done(function (data, textStatus, jqXHR) {\r\n+    const doc = new DOMParser().parseFromString(data, \"text/html\");\r\n+    $(\".hoge\").html(doc.querySelector(\".hoge\").innerHTML);\r\n+  });\r\n });\r\n"
+                },
+                {
+                    "date": 1624535368760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,9 @@\n   console.log(selection);\r\n   //activeクラスを解除\r\n   $(\".tab_content div\").removeClass(\"active\");\r\n   //選んだタブをactiveに\r\n-  $(\".tab_content\")\r\n-    .find(\"*[data-tabname=\" + selection + \"]\")\r\n-    .addClass(\"active\");\r\n-  $.get(document.URL).done(function (data, textStatus, jqXHR) {\r\n-    const doc = new DOMParser().parseFromString(data, \"text/html\");\r\n-    $(\".hoge\").html(doc.querySelector(\".hoge\").innerHTML);\r\n-  });\r\n+  var tabactivetion = $(\".tab_content\").find(\r\n+    \"*[data-tabname=\" + selection + \"]\"\r\n+  );\r\n+  tabactivetion.addClass(\"active\");\r\n });\r\n"
+                },
+                {
+                    "date": 1624535397162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,12 @@\n   console.log(selection);\r\n   //activeクラスを解除\r\n   $(\".tab_content div\").removeClass(\"active\");\r\n   //選んだタブをactiveに\r\n-  var tabactivetion = $(\".tab_content\").find(\r\n-    \"*[data-tabname=\" + selection + \"]\"\r\n-  );\r\n-  tabactivetion.addClass(\"active\");\r\n+  $(\".tab_content\")\r\n+    .find(\"*[data-tabname=\" + selection + \"]\")\r\n+    .addClass(\"active\");\r\n+  $.get(document.URL).done(function (data, textStatus, jqXHR) {\r\n+    const doc = new DOMParser().parseFromString(data, \"text/html\");\r\n+    $(\".hoge\").html(doc.querySelector(\".hoge\").innerHTML);\r\n+  });\r\n });\r\n"
+                },
+                {
+                    "date": 1624535417484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,9 @@\n     .find(\"*[data-tabname=\" + selection + \"]\")\r\n     .addClass(\"active\");\r\n   $.get(document.URL).done(function (data, textStatus, jqXHR) {\r\n     const doc = new DOMParser().parseFromString(data, \"text/html\");\r\n-    $(\".hoge\").html(doc.querySelector(\".hoge\").innerHTML);\r\n+    $(\".tab_content *[data-tabname=\" + selection + \"]\").html(\r\n+      doc.querySelector(\".hoge\").innerHTML\r\n+    );\r\n   });\r\n });\r\n"
+                },
+                {
+                    "date": 1624535428894,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,9 @@\n     .addClass(\"active\");\r\n   $.get(document.URL).done(function (data, textStatus, jqXHR) {\r\n     const doc = new DOMParser().parseFromString(data, \"text/html\");\r\n     $(\".tab_content *[data-tabname=\" + selection + \"]\").html(\r\n-      doc.querySelector(\".hoge\").innerHTML\r\n+      doc.querySelector(\".tab_content *[data-tabname=\" + selection + \"]\")\r\n+        .innerHTML\r\n     );\r\n   });\r\n });\r\n"
+                },
+                {
+                    "date": 1624535960069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,5 @@\n   //選んだタブをactiveに\r\n   $(\".tab_content\")\r\n     .find(\"*[data-tabname=\" + selection + \"]\")\r\n     .addClass(\"active\");\r\n-  $.get(document.URL).done(function (data, textStatus, jqXHR) {\r\n-    const doc = new DOMParser().parseFromString(data, \"text/html\");\r\n-    $(\".tab_content *[data-tabname=\" + selection + \"]\").html(\r\n-      doc.querySelector(\".tab_content *[data-tabname=\" + selection + \"]\")\r\n-        .innerHTML\r\n-    );\r\n-  });\r\n });\r\n"
+                },
+                {
+                    "date": 1624536112638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n //タブ切り替えボタンをクリックした場合の処理\r\n $(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n   // 選んだタブ名を取得\r\n   var selection = $(this).data(\"tabname\");\r\n-  console.log(selection);\r\n   //activeクラスを解除\r\n   $(\".tab_content div\").removeClass(\"active\");\r\n   //選んだタブをactiveに\r\n   $(\".tab_content\")\r\n"
+                },
+                {
+                    "date": 1624536171963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+//タブ切り替えボタンをクリックした場合の処理\r\n+$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n+  // 選んだタブ名を取得\r\n+  var selection = $(this).data(\"tabname\");\r\n+  //activeクラスを解除\r\n+  $(\".tab_content div\").removeClass(\"active\");\r\n+  //選んだタブをactiveに\r\n+  $(\".tab_content\")\r\n+    .find(\"*[data-tabname=\" + selection + \"]\")\r\n+    .addClass(\"active\");\r\n+\r\n+  window.resizeBy(width, height);\r\n+});\r\n"
+                },
+                {
+                    "date": 1624536520035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,11 @@\n+//タブ切り替えボタンをクリックした場合の処理\r\n+$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n+  // 選んだタブ名を取得\r\n+  var selection = $(this).data(\"tabname\");\r\n+  //activeクラスを解除\r\n+  $(\".tab_content div\").removeClass(\"active\");\r\n+  //選んだタブをactiveに\r\n+  $(\".tab_content\")\r\n+    .find(\"*[data-tabname=\" + selection + \"]\")\r\n+    .addClass(\"active\");\r\n+});\r\n"
+                },
+                {
+                    "date": 1624537909846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,28 +8,4 @@\n   $(\".tab_content\")\r\n     .find(\"*[data-tabname=\" + selection + \"]\")\r\n     .addClass(\"active\");\r\n });\r\n-//タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n-  // 選んだタブ名を取得\r\n-  var selection = $(this).data(\"tabname\");\r\n-  //activeクラスを解除\r\n-  $(\".tab_content div\").removeClass(\"active\");\r\n-  //選んだタブをactiveに\r\n-  $(\".tab_content\")\r\n-    .find(\"*[data-tabname=\" + selection + \"]\")\r\n-    .addClass(\"active\");\r\n-\r\n-  window.resizeBy(width, height);\r\n-});\r\n-//タブ切り替えボタンをクリックした場合の処理\r\n-$(\".tab_switch\").on(\"click\", \".tab_btn div\", function () {\r\n-  // 選んだタブ名を取得\r\n-  var selection = $(this).data(\"tabname\");\r\n-  //activeクラスを解除\r\n-  $(\".tab_content div\").removeClass(\"active\");\r\n-  //選んだタブをactiveに\r\n-  $(\".tab_content\")\r\n-    .find(\"*[data-tabname=\" + selection + \"]\")\r\n-    .addClass(\"active\");\r\n-});\r\n"
                 }
             ],
             "date": 1624520599691,

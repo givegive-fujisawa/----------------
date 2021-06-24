@@ -8,10 +8,13 @@
   }
   //   タブ内容設定
   .tab_content {
-    div {
-      display: none;
+    position: relative;
+    > div {
+      position: absolute;
+      visibility: hidden;
       &.active {
-        display: block;
+        visibility: visible;
+        position: relative;
       }
     }
   }

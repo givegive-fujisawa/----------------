@@ -6,10 +6,16 @@
   cursor: pointer;
 }
 
-.tab_switch .tab_content div {
-  display: none;
+.tab_switch .tab_content {
+  position: relative;
 }
 
-.tab_switch .tab_content div.active {
-  display: block;
+.tab_switch .tab_content > div {
+  position: absolute;
+  visibility: hidden;
+}
+
+.tab_switch .tab_content > div.active {
+  visibility: visible;
+  position: relative;
 }
